@@ -1,6 +1,6 @@
-# PallyCon Multi-DRM sample for Flutter Better Player
+# DoveRunner Multi-DRM sample for Flutter Better Player
 
-This sample code shows how to integrate PallyCon Multi-DRM with [Better Player](https://github.com/jhomlala/betterplayer) project. It supports streaming playback of DRM-protected contents as below.
+This sample code shows how to integrate DoveRunner Multi-DRM with [Better Player](https://github.com/jhomlala/betterplayer) project. It supports streaming playback of DRM-protected contents as below.
 
  - Android: MPEG-DASH content protected by Widevine DRM
  - iOS: HLS content protected by FairPlay Streaming DRM
@@ -16,17 +16,17 @@ This sample was tested with the below components and environments.
 
 ## Widevine DRM integration for Android
 
-In terms of Widevine DRM support for Android app, PallyCon Multi-DRM is compatible with Better Player without any modification. You can simply replace the below values in Better Player example as described in [Better Player's DRM configuration guide](https://jhomlala.github.io/betterplayer/#/drmconfiguration).
+In terms of Widevine DRM support for Android app, DoveRunner Multi-DRM is compatible with Better Player without any modification. You can simply replace the below values in Better Player example as described in [Better Player's DRM configuration guide](https://jhomlala.github.io/betterplayer/#/drmconfiguration).
 
   - Widevine content URL : Input your DASH mpd URL in `url` parameter
   - License server URL : Input our DRM license server URL (`https://license-global.pallycon.com/ri/licenseManager.do`)
-  - DRM custom data : Input PallyCon DRM license token string as `pallycon-customdata-v2` custom header.
+  - DRM custom data : Input DoveRunner DRM license token string as `pallycon-customdata-v2` custom header.
 
 > Please refer to `drm_page.dart` source code in this sample for more details.
 
 ## FairPlay Streaming (FPS) DRM integration for iOS
 
-Unlike the Widevine integration for Android, FPS integration for iOS requires modification of Better Player code and additional implementation to support PallyCon Multi-DRM. 
+Unlike the Widevine integration for Android, FPS integration for iOS requires modification of Better Player code and additional implementation to support DoveRunner Multi-DRM. 
 
 You may follow the below steps or refer to the source files in `ios > Classes` folder of this sample project.
 
@@ -61,7 +61,7 @@ You may follow the below steps or refer to the source files in `ios > Classes` f
 
 ### Creating BetterPlayerPallyconDrmAssetsLoaderDelegate
 
-The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerPallyconDrmAssetsLoaderDelegate` to support PallyCon Multi-DRM integration.
+The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerPallyconDrmAssetsLoaderDelegate` to support DoveRunner Multi-DRM integration.
 
 Please refer to the source files under `ios > Classes` folder of this sample.
 
@@ -142,8 +142,8 @@ You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive
 
 ## Useful links
 
-- [PallyCon Multi-DRM Guide Documents](https://pallycon.com/docs/en/multidrm/)
-- [PallyCon Multi-DRM License Token Guide](https://pallycon.com/docs/en/multidrm/license/license-token/)
-- [FairPlay Certificate Registration Tutorial](https://pallycon.com/docs/en/multidrm/license/fps-cert-tutorial/)
+- [DoveRunner Multi-DRM Guide Documents](https://doverunner.com/docs/en/multidrm/)
+- [DoveRunner Multi-DRM License Token Guide](https://doverunner.com/docs/en/multidrm/license/license-token/)
+- [FairPlay Certificate Registration Tutorial](https://doverunner.com/docs/en/multidrm/license/fps-cert-tutorial/)
 - [License Token Generation on DevConsole](https://sample.pallycon.com/dev/devconsole/customData.do?lang=en#create-token)
 - [Better Player Document](https://jhomlala.github.io/betterplayer/#/README)
