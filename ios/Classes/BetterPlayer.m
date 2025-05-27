@@ -266,10 +266,10 @@ static inline CGFloat radiansToDegrees(CGFloat radians) {
             if (certificateUrl && certificateUrl != [NSNull null] && [certificateUrl length] > 0) {
                 NSURL * certificateNSURL = [[NSURL alloc] initWithString: certificateUrl];
                 NSURL * licenseNSURL = [[NSURL alloc] initWithString: licenseUrl];
-                _pallyconLoaderDelegate = [[BetterPlayerPallyconDrmAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
+                _fairplayLoaderDelegate = [[BetterPlayerMultiDrmAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
                 dispatch_queue_attr_t qos = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_DEFAULT, -1);
                 dispatch_queue_t streamQueue = dispatch_queue_create("streamQueue", qos);
-                [asset.resourceLoader setDelegate:_pallyconLoaderDelegate queue:streamQueue];
+                [asset.resourceLoader setDelegate:_fairplayLoaderDelegate queue:streamQueue];
             }
             item = [AVPlayerItem playerItemWithAsset:asset];
         }

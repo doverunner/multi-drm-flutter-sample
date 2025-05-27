@@ -1,11 +1,11 @@
-// Copyright 2022 InkaEntworks.
+// Copyright 2022 Doverunner.
 
-#import "BetterPlayerPallyconDrmAssetsLoaderDelegate.h"
+#import "BetterPlayerMultiDrmAssetsLoaderDelegate.h"
 
-@implementation BetterPlayerPallyconDrmAssetsLoaderDelegate
+@implementation BetterPlayerMultiDrmAssetsLoaderDelegate
 
-//PallyCon DRM
-NSString * DEFAULT_PALLYCON_LICENSE_SERVER_URL = @"https://license-global.pallycon.com/ri/licenseManager.do";
+//FairPlay DRM
+NSString * DEFAULT_DOVERUNNER_LICENSE_SERVER_URL = @"https://drm-license.doverunner.com/ri/licenseManager.do";
 
 - (instancetype)init:(NSURL *)certificateURL withLicenseURL:(NSURL *)licenseURL
     withHeaders:(NSDictionary *)headers{
@@ -39,12 +39,12 @@ NSString * DEFAULT_PALLYCON_LICENSE_SERVER_URL = @"https://license-global.pallyc
     if ([_licenseURL checkResourceIsReachableAndReturnError:nil] == NO) {
         finalLicenseURL = _licenseURL;
     } else {
-        finalLicenseURL = [[NSURL alloc] initWithString: DEFAULT_PALLYCON_LICENSE_SERVER_URL];
+        finalLicenseURL = [[NSURL alloc] initWithString: DEFAULT_DOVERUNNER_LICENSE_SERVER_URL];
     }
     
     NSURL * requestURL = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"%@", finalLicenseURL]];
-    NSString * pallyConSpc = [NSString stringWithFormat:@"spc=%@", [requestBytes base64EncodedStringWithOptions:0]];
-    NSData * data = [pallyConSpc dataUsingEncoding:NSUTF8StringEncoding];
+    NSString * fairplaySpc = [NSString stringWithFormat:@"spc=%@", [requestBytes base64EncodedStringWithOptions:0]];
+    NSData * data = [fairplaySpc dataUsingEncoding:NSUTF8StringEncoding];
 
     NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:requestURL];
     [request setHTTPMethod:@"POST"];

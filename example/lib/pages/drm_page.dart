@@ -33,25 +33,25 @@ class _DrmPageState extends State<DrmPage> {
     _widevineController = BetterPlayerController(betterPlayerConfiguration);
     BetterPlayerDataSource _widevineDataSource = BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,
-      Constants.InkaDashContents,
+      Constants.DRMDashContents,
       drmConfiguration: BetterPlayerDrmConfiguration(
           drmType: BetterPlayerDrmType.widevine,
-          licenseUrl: Constants.InkaLicenseUrl,
-          headers: {"pallycon-customdata-v2": Constants.InkaDashCustomData}),
+          licenseUrl: Constants.DRMLicenseUrl,
+          headers: {"pallycon-customdata-v2": Constants.DRMDashCustomData}),
     );
     _widevineController.setupDataSource(_widevineDataSource);
 
     _fairplayController = BetterPlayerController(betterPlayerConfiguration);
     BetterPlayerDataSource _fairplayDataSource = BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,
-      Constants.InkaHlsContents,
+      Constants.DRMHlsContents,
       drmConfiguration: BetterPlayerDrmConfiguration(
         drmType: BetterPlayerDrmType.fairplay,
-        certificateUrl: Constants.InkaCertUrl,
-        licenseUrl: Constants.InkaLicenseUrl,
+        certificateUrl: Constants.DRMCertUrl,
+        licenseUrl: Constants.DRMLicenseUrl,
         headers: {
-          "pallycon-customdata-v2": Constants.InkaHlsCustomData,
-          "siteId": Constants.InkaSiteId
+          "pallycon-customdata-v2": Constants.DRMHlsCustomData,
+          "siteId": Constants.DRMSiteId
         },
       ),
     );
@@ -85,7 +85,7 @@ class _DrmPageState extends State<DrmPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "INKA Fair Play",
+                "Doverunner FairPlay",
                 style: TextStyle(fontSize: 16),
               ),
             ),

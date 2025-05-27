@@ -54,20 +54,18 @@ class Constants {
       "https://bitmovin-a.akamaihd.net/content/sintel/sintel.mpd";
   static String segmentedSubtitlesHlsUrl =
       "https://eng-demo.cablecast.tv/segmented-captions/vod.m3u8";
-  static String InkaDashContents =
-      "https://contents.pallycon.com/DEMO/app/big_buck_bunny/dash/stream.mpd";
-  static String InkaHlsContents =
-      "https://contents.pallycon.com/TEST/PACKAGED_CONTENT/TEST_SIMPLE/hls/master.m3u8";
-  static String InkaLicenseUrl =
-      "https://license-global.pallycon.com/ri/licenseManager.do";
-  static String InkaCertUrl =
-      "https://license.pallycon.com/ri/fpsKeyManager.do";
-  static String InkaDashCustomData =
+  static String DRMDashContents =
+      "https://drm-contents.doverunner.com/DEMO/app/big_buck_bunny/dash/stream.mpd";
+  static String DRMHlsContents =
+      "https://drm-contents.doverunner.com/TEST/PACKAGED_CONTENT/TEST_SIMPLE/hls/master.m3u8";
+  static String DRMLicenseUrl =
+      "https://drm-license.doverunner.com/ri/licenseManager.do";
+  static String DRMCertUrl =
+      "https://drm-license.doverunner.com/ri/fpsKeyManager.do";
+  static String DRMDashCustomData =
       "eyJkcm1fdHlwZSI6IldpZGV2aW5lIiwic2l0ZV9pZCI6IkRFTU8iLCJ1c2VyX2lkIjoidGVzdFVzZXIiLCJjaWQiOiJkZW1vLWJiYi1zaW1wbGUiLCJwb2xpY3kiOiI5V3FJV2tkaHB4VkdLOFBTSVljbkp1dUNXTmlOK240S1ZqaTNpcEhIcDlFcTdITk9uYlh6QS9pdTdSa0Vwbk85c0YrSjR6R000ZkdCMzVnTGVORGNHYWdPY1Q4Ykh5c3k0ZHhSY2hYV2tUcDVLdXFlT0ljVFFzM2E3VXBnVVdTUCIsInJlc3BvbnNlX2Zvcm1hdCI6Im9yaWdpbmFsIiwia2V5X3JvdGF0aW9uIjpmYWxzZSwidGltZXN0YW1wIjoiMjAyMi0wNi0xOVQyMzo0NjoyOFoiLCJoYXNoIjoid3dWSFVhNnRNT1BUUmZmNkRWZUVua0Z0cWMvMkJPRkpGUzU1aE5iNkp2ND0ifQ==";
-  static String InkaHlsCustomData =
+  static String DRMHlsCustomData =
       "eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJ1dGVzdCIsImRybV90eXBlIjoiZmFpcnBsYXkiLCJzaXRlX2lkIjoiREVNTyIsImhhc2giOiJHOXRub25WaU0zUHZEeUpVaVMycmxJUWhqN3VcL2xGc3dQNThhejB0c3AyTT0iLCJjaWQiOiJUZXN0UnVubmVyIiwicG9saWN5IjoiOVdxSVdrZGhweFZHSzhQU0lZY25Kc2N2dUE5c3hndWJMc2QrYWp1XC9ib21RWlBicUkreGFlWWZRb2Nja3Z1RWZ4RGNjbTdjV2RWWHFyZE1nQVFqbXFmVVhja1doNEgwNGFMODlUa0hKOXUxWjJTUUlhSWFUXC9rd09JUFQyaWZMN2NkK0pBK2l0clpzaHNqbXpxR0R6NWVzOVhtbk0rWktUNnF4WUtOM2o0ekV3WURvTHlBeUhTZzVvN3BVQjVZa1YiLCJ0aW1lc3RhbXAiOiIyMDIxLTA3LTE0VDA5OjM3OjI5WiJ9";
-  static String InkaSiteId =
-      "DEMO";
-  static String InkaSiteKey =
-      "";
+  static String DRMSiteId = "DEMO";
+  static String DRMSiteKey = "";
 }

@@ -19,7 +19,7 @@ This sample was tested with the below components and environments.
 In terms of Widevine DRM support for Android app, DoveRunner Multi-DRM is compatible with Better Player without any modification. You can simply replace the below values in Better Player example as described in [Better Player's DRM configuration guide](https://jhomlala.github.io/betterplayer/#/drmconfiguration).
 
   - Widevine content URL : Input your DASH mpd URL in `url` parameter
-  - License server URL : Input our DRM license server URL (`https://license-global.pallycon.com/ri/licenseManager.do`)
+  - License server URL : Input our DRM license server URL (`https://drm-license.doverunner.com/ri/licenseManager.do`)
   - DRM custom data : Input DoveRunner DRM license token string as `pallycon-customdata-v2` custom header.
 
 > Please refer to `drm_page.dart` source code in this sample for more details.
@@ -59,20 +59,20 @@ You may follow the below steps or refer to the source files in `ios > Classes` f
     }
     ```
 
-### Creating BetterPlayerPallyconDrmAssetsLoaderDelegate
+### Creating BetterPlayerMultiDrmAssetsLoaderDelegate
 
-The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerPallyconDrmAssetsLoaderDelegate` to support DoveRunner Multi-DRM integration.
+The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerMultiDrmAssetsLoaderDelegate` to support DoveRunner Multi-DRM integration.
 
 Please refer to the source files under `ios > Classes` folder of this sample.
 
 ### Modifying BetterPlayer
 
-You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive the `drmHeaders` value from `BetterPlayerPallyconDrmAssetsLoaderDelegate`.
+You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive the `drmHeaders` value from `BetterPlayerMultiDrmAssetsLoaderDelegate`.
 
  - `BetterPlayer.h` (overloading setDataSourceURL)
     
     ```objectivec
-    @property(readonly, nonatomic) BetterPlayerPallyconDrmAssetsLoaderDelegate* pallyconLoaderDelegate;
+    @property(readonly, nonatomic) BetterPlayerMultiDrmAssetsLoaderDelegate* fairplayLoaderDelegate;
     
     - (void)setDataSourceURL:(NSURL*)url withKey:(NSString*)key 
     		withCertificateUrl:(NSString*)certificateUrl 
@@ -125,10 +125,10 @@ You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive
                 if (certificateUrl && certificateUrl != [NSNull null] && [certificateUrl length] > 0) {
                     NSURL * certificateNSURL = [[NSURL alloc] initWithString: certificateUrl];
                     NSURL * licenseNSURL = [[NSURL alloc] initWithString: licenseUrl];
-                    _pallyconLoaderDelegate = [[BetterPlayerPallyconDrmAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
+                    _fairplayLoaderDelegate = [[BetterPlayerMultiDrmAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
                     dispatch_queue_attr_t qos = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_DEFAULT, -1);
                     dispatch_queue_t streamQueue = dispatch_queue_create("streamQueue", qos);
-                    [asset.resourceLoader setDelegate:_pallyconLoaderDelegate queue:streamQueue];
+                    [asset.resourceLoader setDelegate:_fairplayLoaderDelegate queue:streamQueue];
                 }
                 item = [AVPlayerItem playerItemWithAsset:asset];
             }
@@ -145,5 +145,5 @@ You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive
 - [DoveRunner Multi-DRM Guide Documents](https://doverunner.com/docs/en/multidrm/)
 - [DoveRunner Multi-DRM License Token Guide](https://doverunner.com/docs/en/multidrm/license/license-token/)
 - [FairPlay Certificate Registration Tutorial](https://doverunner.com/docs/en/multidrm/license/fps-cert-tutorial/)
-- [License Token Generation on DevConsole](https://sample.pallycon.com/dev/devconsole/customData.do?lang=en#create-token)
+- [License Token Generation on DevConsole](https://devconsole.doverunner.com/drm-tools/license-token/#token-generator)
 - [Better Player Document](https://jhomlala.github.io/betterplayer/#/README)
