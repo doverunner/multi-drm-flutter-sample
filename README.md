@@ -59,20 +59,20 @@ You may follow the below steps or refer to the source files in `ios > Classes` f
     }
     ```
 
-### Creating BetterPlayerMultiDrmAssetsLoaderDelegate
+### Creating BetterPlayerDoverunnerAssetsLoaderDelegate
 
-The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerMultiDrmAssetsLoaderDelegate` to support DoveRunner Multi-DRM integration.
+The original Better Player project has `BetterPlayerEzDrmAssetsLoaderDelegate` which is for EZDRM integration. You need to add `BetterPlayerDoverunnerAssetsLoaderDelegate` to support DoveRunner Multi-DRM integration.
 
 Please refer to the source files under `ios > Classes` folder of this sample.
 
 ### Modifying BetterPlayer
 
-You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive the `drmHeaders` value from `BetterPlayerMultiDrmAssetsLoaderDelegate`.
+You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive the `drmHeaders` value from `BetterPlayerDoverunnerAssetsLoaderDelegate`.
 
  - `BetterPlayer.h` (overloading setDataSourceURL)
     
     ```objectivec
-    @property(readonly, nonatomic) BetterPlayerMultiDrmAssetsLoaderDelegate* fairplayLoaderDelegate;
+    @property(readonly, nonatomic) BetterPlayerDoverunnerAssetsLoaderDelegate* fairplayLoaderDelegate;
     
     - (void)setDataSourceURL:(NSURL*)url withKey:(NSString*)key 
     		withCertificateUrl:(NSString*)certificateUrl 
@@ -125,7 +125,7 @@ You need to modify `BetterPlayer.h` and `BetterPlayer.m` source codes to receive
                 if (certificateUrl && certificateUrl != [NSNull null] && [certificateUrl length] > 0) {
                     NSURL * certificateNSURL = [[NSURL alloc] initWithString: certificateUrl];
                     NSURL * licenseNSURL = [[NSURL alloc] initWithString: licenseUrl];
-                    _fairplayLoaderDelegate = [[BetterPlayerMultiDrmAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
+                    _fairplayLoaderDelegate = [[BetterPlayerDoverunnerAssetsLoaderDelegate alloc] init:certificateNSURL withLicenseURL:licenseNSURL withHeaders:drmHeaders];
                     dispatch_queue_attr_t qos = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_DEFAULT, -1);
                     dispatch_queue_t streamQueue = dispatch_queue_create("streamQueue", qos);
                     [asset.resourceLoader setDelegate:_fairplayLoaderDelegate queue:streamQueue];

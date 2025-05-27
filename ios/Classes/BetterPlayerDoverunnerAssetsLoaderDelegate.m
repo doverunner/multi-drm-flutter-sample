@@ -1,8 +1,8 @@
 // Copyright 2022 Doverunner.
 
-#import "BetterPlayerMultiDrmAssetsLoaderDelegate.h"
+#import "BetterPlayerDoverunnerAssetsLoaderDelegate.h"
 
-@implementation BetterPlayerMultiDrmAssetsLoaderDelegate
+@implementation BetterPlayerDoverunnerAssetsLoaderDelegate
 
 //FairPlay DRM
 NSString * DEFAULT_DOVERUNNER_LICENSE_SERVER_URL = @"https://drm-license.doverunner.com/ri/licenseManager.do";
