@@ -37,7 +37,7 @@ class _DrmPageState extends State<DrmPage> {
       drmConfiguration: BetterPlayerDrmConfiguration(
           drmType: BetterPlayerDrmType.widevine,
           licenseUrl: Constants.DRMLicenseUrl,
-          headers: {"pallycon-customdata-v2": Constants.DRMDashCustomData}),
+          headers: {"pallycon-customdata-v2": Constants.DRMDashAuthData}),
     );
     _widevineController.setupDataSource(_widevineDataSource);
 
@@ -50,7 +50,7 @@ class _DrmPageState extends State<DrmPage> {
         certificateUrl: Constants.DRMCertUrl,
         licenseUrl: Constants.DRMLicenseUrl,
         headers: {
-          "pallycon-customdata-v2": Constants.DRMHlsCustomData,
+          "pallycon-customdata-v2": Constants.DRMHlsAuthData,
           "siteId": Constants.DRMSiteId
         },
       ),

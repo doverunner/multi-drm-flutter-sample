@@ -62,7 +62,7 @@ NSString * DEFAULT_DOVERUNNER_LICENSE_SERVER_URL = @"https://drm-license.doverun
         NSLog(@"SDK Error, SDK responded with Error: (error)");
     }
     
-    [self checkPallyConServerError:data];
+    [self checkServerError:data];
 
     return decodedData;
 }
@@ -98,12 +98,12 @@ NSString * DEFAULT_DOVERUNNER_LICENSE_SERVER_URL = @"https://drm-license.doverun
         NSLog(@"SDK Error, SDK responded with Error: (error)");
     }
     
-    [self checkPallyConServerError:certificate];
+    [self checkServerError:certificate];
     
     return certificate;
 }
 
-- (Boolean)checkPallyConServerError:(NSData *)response {
+- (Boolean)checkServerError:(NSData *)response {
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:response
                                                          options:kNilOptions
